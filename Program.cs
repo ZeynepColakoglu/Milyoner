@@ -106,8 +106,27 @@
                     // TODO: Bu kısım sorudan bağımsız kullanılabilmeli.
                     gizleB = true;
                     gizleC = true;
-
-
+                    yuzdeHak = false;
+                    goto soruNoktasi;
                 }
+                else if (jokerCevap == 3 && telefonHak)
+                {
+                    Console.WriteLine("1-) " + telefonJoker1);
+                    Console.WriteLine("2-) " + telefonJoker2);
+                    Console.WriteLine("3-) " + telefonJoker3);
+                    Console.Write("Kimi Aramak İstersiniz? : ");
+                    int telefonCevap = int.Parse(Console.ReadLine());
+
+                    if (soruNo <= 7 || telefonCevap == 3) Console.WriteLine("Cevap Kesinlikle " + cevap);
+                    else if (telefonCevap == 1)// TODO: Şıklar rastgele olacak. 1Doğru 1Yanlış cevap şeklinde
+                        Console.WriteLine("Emin Değilim. Ancak A veya B olduğunu düşünüyorum");
+                    else if (telefonCevap == 2)
+                        Console.WriteLine("Bilemedim. Kusura bakma");
+                    telefonHak = false;
+                }
+                else
+                    Console.WriteLine("Bu Joker Daha Önce Kullanıldı..");
+
+            }
     }
 }
